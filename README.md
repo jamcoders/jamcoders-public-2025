@@ -7,4 +7,4 @@ To use in `google.colab`, run these commands
 from jamcoders2023.preamble import *
 ```
 
-Find more detailed instructions for how to connect to the lab files [here](https://github.com/jamcoders/labs-2023/edit/main/README.md).
+Find more detailed instructions for how to connect to the lab files [here](https://github.com/jamcoders/labs-2023).
