@@ -29,3 +29,22 @@ def decode_base64(b64):
     message_bytes = base64.b64decode(base64_bytes)
     message = message_bytes.decode('ascii')
     return message
+
+
+DEBUGGABLE_ARGS = "_debuggable_args"
+DEBUGGABLE_KWARGS = "_debuggable_kwargs"
+
+def debuggable(f):
+    @functools.wraps(f)
+    def g(*args, **kwargs):
+        try:
+            args_copy = copy.deepcopy(args)
+            kwargs_copy = copy.deepcopy(kwargs)
+        except Exception:
+            args_copy = None
+            kwargs_copy = None
+        result = f(*args, **kwargs)
+        setattr(g, DEBUGGABLE_ARGS, args_copy)
+        setattr(g, DEBUGGABLE_KWARGS, kwargs_copy)
+        return result
+    return g
