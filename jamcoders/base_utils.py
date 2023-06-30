@@ -1,4 +1,12 @@
+# For answer checking without revealing the answer
+def check_answers(answer, correct):
+    if correct == answer:
+        print("Your answer is correct!")
+    else:
+        print(f"Your answer: '{answer}' is wrong :( try again!")
 
+
+# For comparison of answers
 def assert_equal(want, got):
 
     if want == got or (type(want) == float and type(got) == float and abs(want - got) < 0.001):
