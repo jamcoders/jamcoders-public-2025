@@ -2,7 +2,7 @@ import base64
 
 
 # For comparison of answers
-def assert_equal(got, want):
+def assert_equal(want, got):
     if want == got or (type(want) == float and type(got) == float and abs(want - got) < 0.001):
         print("Test case passed.")
         return
