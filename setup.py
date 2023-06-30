@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='jamcoders2023',
-    version='1.0.0',
+    name='jamcoders',
+    version='1.0.1',
     author='Jamcoders',
     author_email='jamcoders@jamcoders.com',
     description='Utilities for JamCoders',
