@@ -1,7 +1,7 @@
 EMPTY_TILE = 0
 X_PIECE = 1
 O_PIECE = 2
-NO_WINNER = "NO_WINNER"p
+NO_WINNER = "NO_WINNER"
 
 def make_check_winner(seq):
     def check_winner(board):
