@@ -1,5 +1,6 @@
 import base64
 
+# For comparison of answers
 def assert_equal(want, got):
 
     if want == got or (type(want) == float and type(got) == float and abs(want - got) < 0.001):
@@ -13,6 +14,7 @@ def assert_equal(want, got):
     print("-------------------------------------")
     print()
 
+# Encodes ASCII string to base64
 def encode_base64(str):
     message = str
     message_bytes = message.encode('ascii')
@@ -20,6 +22,7 @@ def encode_base64(str):
     base64_message = base64_bytes.decode('ascii')
     return base64_message
 
+# Decodes base64 to ASCII string
 def decode_base64(b64):
     base64_message = b64
     base64_bytes = base64_message.encode('ascii')
