@@ -1,3 +1,5 @@
+import termcolor
+
 EMPTY_TILE = 0
 X_PIECE = 1
 O_PIECE = 2
@@ -40,3 +42,33 @@ def get_piece(board, row, column):
     """
     # YOUR CODE HERE
     return board[-row-1][column]
+
+def print_space():
+    """Prints a space, without printing a new line."""
+    print(' ', end='')
+
+def our_print_board(board):
+    """Prints a visual representation of the board."""
+    for row in board:
+        for tile in row:
+            print_tile(tile)
+            print_space()
+        print()
+
+def print_tile(tile):
+    """
+    Given a numerical tile, prints its visual representation.
+
+    Args:
+        tile (EMPTY_TILE, X_PIECE, or O_PIECE): 
+            The tile to print.
+    """
+    if tile == EMPTY_TILE:
+        # No coloring here because we don't know if it's dark or light mode.
+        print("·", end = '')
+    elif tile == X_PIECE:
+        print(termcolor.colored('X', 'red'), end = '')
+    elif tile == O_PIECE:
+        print(termcolor.colored('O', 'blue'), end = '')
+    else:
+        raise RuntimeError(f"Error: the tile given was not 0, 1, or 2 (got {tile})")
