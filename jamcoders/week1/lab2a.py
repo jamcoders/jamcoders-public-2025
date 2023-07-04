@@ -22,3 +22,9 @@ def check_answer5(ans): answer_true(ans,5)
 def check_answer6(ans): answer_false(ans,6)
 def check_answer7(ans): answer_true(ans,7)
 def check_answer8(ans): answer_true(ans,8)
+
+
+def check_answer_3_4(ans):
+    answers = [False,True,False,False,True,True,True]
+    for i in range(len(answers)):
+        check_answers(answers[i], ans[i], i+1)
