@@ -3,7 +3,7 @@ def check_answers(answer, correct, num):
     if correct == answer:
         print(f"Your answer to Question {num} is correct!")
     else:
-        print(f"Your answer: '{answer}' is wrong :( try again!")
+        print(f"Your answer to Question {num}: '{answer}' is wrong :( try again!")
 
 
 def answer_true(ans,num):
@@ -12,7 +12,7 @@ def answer_true(ans,num):
 
 def answer_false(ans,num):
     answer = False
-    check_answers(ans, answer)
+    check_answers(ans, answer, num)
 
 def check_answer1(ans): answer_false(ans,1)
 def check_answer2(ans): answer_false(ans,2)
