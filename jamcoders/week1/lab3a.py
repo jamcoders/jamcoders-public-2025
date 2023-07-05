@@ -17,6 +17,7 @@ check_answer_3c = create_check_answer(3, '3c')
 check_answer_3d = create_check_answer(1, '3d')
 check_answer_4a = create_check_answer(9, '4a')
 check_answer_4b = create_check_answer(3, '4b')
+check_answer_6 = create_check_answer(25, '6')
 
 check_6_1_100 = create_check_answer(1000,'6.1 (100)')
 check_6_1_123456 = create_check_answer(1234566,'6.1 (123456)')
