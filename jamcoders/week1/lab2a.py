@@ -35,4 +35,3 @@ def check_answer_3_4(ans):
     answers = [False,True,False,False,True,True,True]
     for i in range(len(answers)):
         check_answers(ans[i],answers[i], i+1)
-
