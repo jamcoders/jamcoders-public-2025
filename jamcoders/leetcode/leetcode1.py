@@ -65,3 +65,27 @@ def check_morse_code(fn):
     ]
     check_answers(fn, staff_unique_morse_codes_correct, questions)
     
+
+def staff_print_vertically(s):
+    words = s.split()
+    max_length = max((len(i) for i in words))
+    
+    answer = [[] for _ in range(max_length)]
+    
+    for w in words:
+        for i in range(len(w)):
+            answer[i].append(w[i])
+        
+        
+        for i in range(len(w), max_length):
+            answer[i].append(' ')
+    
+    return [''.join(w).rstrip() for w in answer]
+                
+def check_print_vertical(fn):
+    questions = [
+        "HOW ARE YOU",
+        "TO BE OR NOT TO BE",
+        "CONTEST IS COMING"
+    ]
+    check_answers(fn, staff_print_vertically, questions)
