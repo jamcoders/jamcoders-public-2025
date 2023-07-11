@@ -1,4 +1,4 @@
-def check_keyboard_correct(words):
+def staff_check_keyboard_correct(words):
     def check_word(r, w):
         for char in w:
             if char not in r: 
@@ -24,7 +24,7 @@ def check_answers(their_fn, my_fn, questions):
     correct_answers = [my_fn(i) for i in questions]
 
     for i in range(len(questions)):
-        if their_answers[i] != correct_answers:
+        if their_answers[i] != correct_answers[i]:
             print("Wrong answer!")
             print("The input:", questions[i])
             print("Your answer:", their_answers[i])
@@ -39,11 +39,11 @@ def check_keyboard(fn):
         ["omk"],
         ["adsdf","sfd"]
     ]
-    check_answers(fn, check_keyboard_correct, questions)
+    check_answers(fn, staff_check_keyboard_correct, questions)
 
 
 
-def unique_morse_codes_correct(words):
+def staff_unique_morse_codes_correct(words):
     morse = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
     s = set()
     
@@ -63,5 +63,5 @@ def check_morse_code(fn):
         ["a"],
         []
     ]
-    check_answers(fn, unique_morse_codes_correct, questions)
+    check_answers(fn, staff_unique_morse_codes_correct, questions)
     
