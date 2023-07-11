@@ -42,3 +42,26 @@ def check_keyboard(fn):
     check_answers(fn, check_keyboard_correct, questions)
 
 
+
+def unique_morse_codes_correct(words):
+    morse = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+    s = set()
+    
+    for word in words:
+        so_far = []
+        for char in word:
+            idx = ord(char) - ord('a')
+            so_far.append(morse[idx])
+        s.add(''.join(so_far))
+    return len(s)
+
+
+def check_morse_code(fn):
+    questions = [
+        ["gin","zen","gig","msg"],
+        ["gin","zen","gig","msg", "dad", "mad", "pot", "bed", "car"],
+        ["a"],
+        []
+    ]
+    check_answers(fn, unique_morse_codes_correct, questions)
+    
