@@ -84,9 +84,11 @@ def staff_print_vertically(s):
                 
 def check_print_vertical(fn):
     questions = [
+        "THIS IS PRETTY HARD ISNT IT",
         "HOW ARE YOU",
         "TO BE OR NOT TO BE",
-        "CONTEST IS COMING"
+        "CONTEST IS COMING",
+        "SUPERCALIFRAGILISTIC LOL",
     ]
     check_answers(fn, staff_print_vertically, questions)
 
@@ -110,6 +112,9 @@ def check_integer_to_words(fn):
     questions = [
         123,
         12345,
-        1234567
+        1234567,
+        19,
+        111,
+        310
     ]
     check_answers(fn, staff_integer_to_words, questions)
