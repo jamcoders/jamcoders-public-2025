@@ -67,9 +67,19 @@ def create_solution_functions():
 
     globals_ = globals()
     for question, solution in solutions.items():
-        name = f"checkAnswer{question}"
+        name = f"check_answer{question}"
         fn = make_solution_function(solution)
         fn.__name__ = name
         globals_[name] = fn
 
    
+
+def check_answer3(name, n):
+    import math
+    if name != "Zaria":
+        print("One of 3.1 and 3.2 is incorrect :(")
+
+    if 0.0001 * (n ** 2) >= 10 * n * math.ceil(n):
+        print("One of 3.1 and 3.2 is incorrect :(")
+
+    print("Both 3.1 and 3.2 are correct! :)")
