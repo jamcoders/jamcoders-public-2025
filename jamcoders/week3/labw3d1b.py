@@ -1,3 +1,4 @@
+import sympy
 def create_solution_functions():
     n = Symbol('n')
     O = Function('O')
