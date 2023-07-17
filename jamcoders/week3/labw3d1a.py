@@ -85,10 +85,13 @@ def check_2_1(*answer):
 def check_2_2(*answer):
     check_answers(answer, ([1, 100], [1, 49], [1, 24], [1, 11], [1, 5], [1, 2]), "2.2")
 
-def check_3_4a(*answer):
+def check_3_1(answer):
+    check_answers(answer, [6, 10], "3.1")
+
+def check_3_4a(answer):
     check_answers(answer, 4, "3.4a")
 
-def check_3_4b(*answer):
+def check_3_4b(answer):
     check_answers(answer, -1, "3.4b")
 
 def check_o_1a(answer):
