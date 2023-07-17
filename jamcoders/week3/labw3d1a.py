@@ -56,10 +56,10 @@ def check_1_2g(answer):
     check_answers(answer, 1, "1.2g")
 
 def check_1_2h(answer):
-    check_answers(answer, 1, "1.2h")
+    check_answers(answer, 0, "1.2h")
 
 def check_1_2i(answer):
-    check_answers(answer, 1, "1.2i")
+    check_answers(answer, 0, "1.2i")
 
 def check_1_2j(answer):
     check_answers(answer, 2, "1.2j")
