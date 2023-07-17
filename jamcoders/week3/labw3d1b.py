@@ -1,6 +1,7 @@
-import sympy
-from sympy import Symbol, Function, log, sympify
 def create_solution_functions():
+    import sympy
+    from sympy import Symbol, Function, log, sympify
+
     n = Symbol('n')
     O = Function('O')
 
