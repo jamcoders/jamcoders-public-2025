@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='jamcoders',
-    version='1.0.3',
+    version='1.0.4',
     author='Jamcoders',
     author_email='jamcoders@jamcoders.com',
     description='Utilities for JamCoders',
