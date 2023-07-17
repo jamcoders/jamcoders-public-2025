@@ -79,10 +79,10 @@ def check_1_2n(answer):
 def check_1_2o(answer):
     check_answers(answer, 2, "1.2o")
 
-def check_2_1(answer):
+def check_2_1(*answer):
     check_answers(answer, ([1, 100], [51, 100], [51, 74], [51, 61]), "2.1")
 
-def check_2_2(answer):
+def check_2_2(*answer):
     check_answers(answer, ([1, 100], [1, 49], [1, 24], [1, 11], [1, 5], [1, 2]), "2.2")
 
 def check_o_1a(answer):
