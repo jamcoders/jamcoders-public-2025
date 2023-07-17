@@ -65,12 +65,12 @@ def create_solution_functions():
                 print()
         return solution_function
 
-    globals_ = globals()
+    # globals_ = globals()
     for question, solution in solutions.items():
         name = f"check_answer{question}"
         fn = make_solution_function(solution)
         fn.__name__ = name
-        globals_[name] = fn
+        globals()[name] = fn
 
    
 
@@ -85,3 +85,5 @@ def check_answer3(name, n):
         return
 
     print("Both 3.1 and 3.2 are correct! :)")
+
+create_solution_functions()
