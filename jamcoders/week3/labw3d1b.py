@@ -78,8 +78,10 @@ def check_answer3(name, n):
     import math
     if name != "Zaria":
         print("One of 3.1 and 3.2 is incorrect :(")
+        return
 
     if 0.0001 * (n ** 2) >= 10 * n * math.log(n):
         print("One of 3.1 and 3.2 is incorrect :(")
+        return
 
     print("Both 3.1 and 3.2 are correct! :)")
