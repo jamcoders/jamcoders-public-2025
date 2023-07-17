@@ -86,4 +86,32 @@ def check_answer3(name, n):
 
     print("Both 3.1 and 3.2 are correct! :)")
 
+def ilog_binary(x):
+    """Finds the smallest integer y for which 2 ** (y+1) > x.
+    Arguments: x (int)
+    Returns: (int)
+    """
+    # Your code here
+    for y in range(x):
+        if 2 **(y + 1) > x:
+            return y
+        
+def fast_ilog_binary(x):
+    """Finds the smallest integer y for which 2 ** (y+1) > x.
+    Arguments: x (int), a (positive integer)
+    Returns: (int)
+    """
+    cnt = 0
+    low = 0
+    high = x
+    
+    while low + 1 < high:
+        cnt += 1
+        mid = (low + high) // 2
+        if 2 ** mid <= x:
+            low = mid
+        else:
+            high = mid
+    return low
+
 create_solution_functions()
