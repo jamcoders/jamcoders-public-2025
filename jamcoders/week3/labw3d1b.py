@@ -79,7 +79,7 @@ def check_answer3(name, n):
     if name != "Zaria":
         print("One of 3.1 and 3.2 is incorrect :(")
 
-    if 0.0001 * (n ** 2) > 10 * n * math.ceil(n):
+    if 0.0001 * (n ** 2) >= 10 * n * math.ceil(n):
         print("One of 3.1 and 3.2 is incorrect :(")
 
     print("Both 3.1 and 3.2 are correct! :)")
