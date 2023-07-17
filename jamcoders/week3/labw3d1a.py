@@ -102,3 +102,30 @@ def check_o_1e(answer):
 
 def check_o_1f(answer):
     check_answers(answer, 6, "O.1f")
+
+import numpy as np
+from numpy.random import default_rng
+from time import sleep
+import base64
+
+MAGIC_NUM = 71723
+MAGIC_STR = base64.b64decode('SGFwcHkgQmlydGhkYXkgV2lsbGlhbSE=').decode('utf-8')
+rng = default_rng()
+orders = np.unique(rng.choice(100000, size=10000, replace=False))
+if MAGIC_NUM not in orders:
+    orders = np.append(orders, MAGIC_NUM)
+orders = np.sort(np.unique(orders))
+magic_index = np.where(orders == MAGIC_NUM)[0][0]
+
+def get_number_of_orders():
+    return len(orders)
+
+def get_order(i):
+    sleep(0.5)
+    return orders[i]
+
+def get_message(i):
+    if i == magic_index:
+        return MAGIC_STR
+    else:
+        return "Sorry, try again!"
