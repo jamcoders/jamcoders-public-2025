@@ -76,7 +76,7 @@ def create_solution_functions():
 
 def check_answer3(name, n):
     import math
-    if name != "Zaria":
+    if name.lower() != "Zaria".lower():
         print("One of 3.1 and 3.2 is incorrect :(")
         return
 

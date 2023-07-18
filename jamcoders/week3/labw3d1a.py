@@ -88,6 +88,9 @@ def check_2_2(*answer):
 def check_3_1(answer):
     check_answers(answer, [6, 10], "3.1")
 
+def check_3_2(answer):
+    check_answers(answer, [[0,5], [3,5]], "3.2")
+
 def check_3_4a(answer):
     check_answers(answer, 4, "3.4a")
 
