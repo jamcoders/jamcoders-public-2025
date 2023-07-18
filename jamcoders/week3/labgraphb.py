@@ -1,14 +1,14 @@
 # For answer checking without revealing the answer
-def check_answers_with_num(answer, correct, num):
+def check_answers_with_num(answer, correct):
     if correct == answer:
-        print(f"Your answer to Question {num} is correct!")
+        print(f"Your answer is correct!")
     else:
-        print(f"Your answer to Question {num}: '{answer}' is wrong :( try again!")
+        print(f"Your answer: '{answer}' is wrong :( try again!")
 
 
-def create_check_answer(correct, num):
+def create_check_answer(correct):
     def check_fn(ans):
-        check_answers_with_num(ans, correct, num)
+        check_answers_with_num(ans, correct)
     return check_fn
 
 def check_answers_with_num_multi(answer, correct):
@@ -25,3 +25,5 @@ def create_check_answer_multi(correct):
 
 
 check_answer_1_0 = create_check_answer_multi([False,False,True,True,True,True,False])
+check_answer_2_1 = create_check_answer(337**2)
+check_answer_2_2 = create_check_answer(2*337**2)
