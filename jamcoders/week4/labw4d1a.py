@@ -29,6 +29,6 @@ check_answer_1b = create_check_answer('Ankara', '1b')
 check_answer_1c = create_check_answer('error', '1c')
 check_answer_1d = create_check_answer('error', '1d')
 check_answer_1e = create_check_answer('error', '1d')
-check_answer_1_3 = create_check_answer_multi([4,True,False,False,'error',True,False])
+check_answer_1_3 = create_check_answer_multi([3,True,False,False,'error',True,False,True])
 
 
