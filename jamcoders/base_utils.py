@@ -1,18 +1,41 @@
 import base64
 
+class NotebookTracking:
+    tracker = None
+
+    @classmethod
+    def is_active(cls):
+        return cls.tracker != None
+    
+    @classmethod
+    def set_activation(cls, is_active):
+        if is_active:
+            # Importing notebook_tracker_client triggers a "!pip install", and imports google.colab,
+            #   both of which can fail if executed in the wrong environment (e.g., not not colab). #   Therefore, we perform this import only if and when notebook tracking is enabled.  
+            from notebook_tracking_client import NotebookTracker
+            cls.tracker = NotebookTracker()
+            cls.tracker.init()
+        else:
+            cls.tracker = None
+
 
 # For comparison of answers
 def assert_equal(want, got):
-    if want == got or (type(want) == float and type(got) == float and abs(want - got) < 0.001):
-        print("Test case passed.")
-        return
 
-    print()
-    print("--------- Test case failed. ---------")
-    print(f"Want: {repr(want)} (type: {type(want).__name__})")
-    print(f"Got:  {repr(got)} (type: {type(got).__name__})")
-    print("-------------------------------------")
-    print()
+    assert_passed = (want == got or (type(want) == float and type(got) == float and abs(want - got) < 0.001))
+
+    if NotebookTracking.is_active():
+        NotebookTracking.tracker.send_assertion_event(assert_passed)
+
+    if assert_passed:
+        print("Test case passed.")
+    else:
+        print()
+        print("--------- Test case failed. ---------")
+        print(f"Want: {repr(want)} (type: {type(want).__name__})")
+        print(f"Got:  {repr(got)} (type: {type(got).__name__})")
+        print("-------------------------------------")
+        print()
 
 
 # Encodes ASCII string to base64
