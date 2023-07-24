@@ -19,6 +19,7 @@
 import inspect
 import requests
 import socket
+import subprocess
 
 from urllib.parse import urljoin
 from google.colab import auth
@@ -55,8 +56,9 @@ class NotebookTracker():
         """
         try:
             auth.authenticate_user()
-            email = !gcloud config get-value account
-            return email[0]
+            result = subprocess.run(['gcloud', 'config', 'get-value', 'account'], stdout=subprocess.PIPE)
+            email_address = result.stdout.decode("utf-8").strip()
+            return email_address
         except:
             return None
 
