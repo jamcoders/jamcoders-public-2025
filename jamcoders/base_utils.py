@@ -11,7 +11,8 @@ class NotebookTracking:
     def set_activation(cls, is_active):
         if is_active:
             # Importing notebook_tracker_client triggers a "!pip install", and imports google.colab,
-            #   both of which can fail if executed in the wrong environment (e.g., not not colab). #   Therefore, we perform this import only if and when notebook tracking is enabled.  
+            #   both of which can fail if executed in the wrong environment (e.g., not not colab).
+            #   Therefore, we perform this import only if and when notebook tracking is enabled.  
             from notebook_tracking_client import NotebookTracker
             cls.tracker = NotebookTracker()
             cls.tracker.init()
