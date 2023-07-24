@@ -24,7 +24,7 @@ import subprocess
 from urllib.parse import urljoin
 from google.colab import auth
 
-import common
+from .common import EVENT
 
 
 ####################################################################################################
@@ -108,10 +108,10 @@ class NotebookTracker():
     @staticmethod
     def _send_assertion_event(email_address, notebook_id, cell_id, result):
         post_data = {
-            common.EVENT.STUDENT_EMAIL_ADDRESS: email_address, 
-            common.EVENT.NOTEBOOK_ID: notebook_id,
-            common.EVENT.CELL_ID: cell_id,
-            common.EVENT.ASSERTION_RESULT: result,
+            EVENT.STUDENT_EMAIL_ADDRESS: email_address, 
+            EVENT.NOTEBOOK_ID: notebook_id,
+            EVENT.CELL_ID: cell_id,
+            EVENT.ASSERTION_RESULT: result,
         }
         requests.post(ASSERTION_URL, post_data)
 
