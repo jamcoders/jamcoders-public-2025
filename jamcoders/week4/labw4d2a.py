@@ -1,3 +1,12 @@
+options = {
+    "font_size": 18,
+    "node_size": 1000,
+    "node_color": "white",
+    "edgecolors": "black",
+    "linewidths": 1,
+    "width": 1,
+}
+
 # For answer checking without revealing the answer
 def check_answers_with_num(answer, correct, num):
     if correct == answer:
