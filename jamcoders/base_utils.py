@@ -74,3 +74,42 @@ def debuggable(f):
         setattr(g, DEBUGGABLE_KWARGS, kwargs_copy)
         return result
     return g
+
+####################################################################################################
+# Check answer
+####################################################################################################
+
+# For answer checking without revealing the answer
+
+def check_answers_with_num(answer, correct, num):
+    check_passed = (correct == answer)
+
+    if NotebookTracking.is_active():
+        NotebookTracking.tracker.send_assertion_event(check_passed)
+    
+    if check_passed:
+        print(f"Your answer to Question {num} is correct!")
+    else:
+        print(f"Your answer to Question {num}: '{answer}' is wrong :( try again!")
+
+def check_answers_multi(answer, correct):
+    check_passed = (correct == answer)
+
+    if NotebookTracking.is_active():
+        NotebookTracking.tracker.send_assertion_event(check_passed)
+    
+    if check_passed:
+        print(f"All your answers are correct!")
+    else:
+        print(f"At least one of your answers is wrong :( try again!")
+
+def create_check_answer(correct, num):
+    def check_fn(ans):
+        check_answers_with_num(ans, correct, num)
+    return check_fn
+
+def create_check_answer_multi(correct):
+    def check_fn(ans):
+        check_answers_multi(ans, correct)
+    return check_fn
+
