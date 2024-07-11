@@ -1,5 +1,6 @@
 import termcolor
 from copy import deepcopy
+import random
 
 EMPTY_TILE = 0
 X_PIECE = 1
@@ -218,11 +219,16 @@ class ConnectFour:
             score = min_value(new_state, best_score, float('inf'), depth - 1)  # Adjust alpha to current best score
             if score >= best_score:
                 best_score = score
-                best_move = move
             scores.append(score)
+        best_indices = []
+        for i in range(len(scores)):
+            if scores[i] == best_score:
+                best_indices.append(i)
+
+        rand_idx = random.choice(best_indices)
     
         # print(scores)
-        return best_move
+        return self.possible_moves()[rand_idx]
 
 
 def playGame():
