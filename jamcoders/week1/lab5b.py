@@ -238,27 +238,16 @@ def playGame():
             valid_moves = [x[1] for x in possible_moves]
             print(f'Valid Moves: {valid_moves}')
             move = (0, 0)
-            # while True:
-            #     try:
-            #         next_row = int(input('What row?'))
-            #         print(f'Row {next_row}')
-            #         next_column = int(input('What column'))
-            #         print(f'Column {next_column}')
-            #         if (next_row, next_column) in game.possible_moves():
-            #             move = (next_row, next_column)
-            #             break
-            #         else:
-            #             raise ValueError()
-            #     except (ValueError, SyntaxError) as e:
-            #         print(next_row, next_column)
-            # while True:
-            #     try:
-            #         next_column = int(input('What column'))
-            #         if next_column in valid_moves:
-            #             break
-            #     except:
-            #         print('Choose a valid move')
-            next_column = int(input('What column'))
+            while True:
+                try:
+                    next_column = int(input('What column'))
+                    if next_column in valid_moves:
+                        break
+                    else:
+                        raise ValueError()
+                except:
+                    print('Choose a valid move')
+            # next_column = int(input('What column'))
             for i in range(len(valid_moves)):
                 if possible_moves[i][1] == next_column:
                     next_row = possible_moves[i][0]
@@ -270,14 +259,15 @@ def playGame():
             player = 1
             print('Human Move Made', move)
         else:
+            print('AI Thinking...')
             best_move = game.minimax(depth)
             game.make_move(best_move)
             player = 0
             print('AI Move Made', best_move)
         game.show()
     if game.check_win('1'):
-        print('Player 1 Wins!')
+        print('AI Wins!')
     elif game.check_win('2'):
-        print('Player 2 Wins!')
+        print('Player Wins!')
     else:
         print('Tie!')
