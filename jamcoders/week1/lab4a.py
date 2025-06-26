@@ -13,7 +13,6 @@ import os
 BASE_DIR = os.path.dirname(__file__)
 DATA_PATH = os.path.join(BASE_DIR, "data", "jamaica_parishes.geojson")
 gdf = gpd.read_file(DATA_PATH).to_crs(epsg=4326)
-
 island = gdf.unary_union
 
 def play_parish_search(tries=3):
@@ -68,10 +67,19 @@ def play_parish_search(tries=3):
 
         # Replay button
         replay_button = widgets.Button(description="Play Again")
-        output = widgets.Output()
+        
+        # Use Javascript + Colab callback to avoid input() bug
+        from IPython.display import Javascript
+        try:
+            from google.colab import output
+            output.register_callback("playGame", play_parish_search)
 
-        def on_replay_clicked(b):
-            with output:
+            def on_replay_clicked(b):
+                display(Javascript('google.colab.kernel.invokeFunction("playGame", [], {})'))
+
+        except ImportError:
+            # Fallback: run directly (needed when using VSCode)
+            def on_replay_clicked(b):
                 clear_output(wait=True)
                 play_parish_search(tries=tries)
 
