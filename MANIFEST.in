@@ -1,0 +1,1 @@
+recursive-include jamcoders/week1/data *.geojson
