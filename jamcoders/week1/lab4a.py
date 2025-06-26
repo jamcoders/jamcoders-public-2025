@@ -41,20 +41,41 @@ def play_parish_search(tries=3):
         ax.set_axis_off()
         plt.show()
 
-        # Game logic
-        attempts = tries
-        while attempts > 0:
-            guess = input(f"Guess the parish ({attempts} {'tries' if attempts > 1 else 'try'} left): ").strip()
-            if guess.lower() == correct_parish.lower():
-                print("Correct! Well done.")
-                break
-            attempts -= 1
-            if attempts == 2:
-                print("Nice try but not yet.")
-            elif attempts == 1:
-                print("Only one guess left.")
-            else:
-                print(f"Out of guesses! The correct parish was **{correct_parish}**.")
+        # Game logic -- widget-based for "play again" option
+        # Widget-based guessing logic
+        guess_input = widgets.Text(
+            placeholder='Type parish name...',
+            description='Guess:',
+            layout=widgets.Layout(width='300px')
+        )
+        submit_button = widgets.Button(description="Submit Guess")
+        feedback_output = widgets.Output()
+
+        # Track state
+        attempts = [tries]  
+
+        def on_submit_clicked(b):
+            guess = guess_input.value.strip()
+            with feedback_output:
+                feedback_output.clear_output()
+                if guess.lower() == correct_parish.lower():
+                    print("Correct! Well done.")
+                    guess_input.disabled = True
+                    submit_button.disabled = True
+                else:
+                    attempts[0] -= 1
+                    if attempts[0] == 2:
+                        print("Nice try but not yet.")
+                    elif attempts[0] == 1:
+                        print("Only one guess left.")
+                    elif attempts[0] <= 0:
+                        print(f"Out of guesses! The correct parish was **{correct_parish}**.")
+                        guess_input.disabled = True
+                        submit_button.disabled = True
+
+        submit_button.on_click(on_submit_clicked)
+        display(widgets.HBox([guess_input, submit_button]), feedback_output)
+
 
         # Reveal map
         fig, ax = plt.subplots(figsize=(6,6))
