@@ -5,6 +5,31 @@ def check_answers(answer, correct, num):
     else:
         print(f"Your answer to Question {num}: '{answer}' is wrong :( try again!")
 
+
+def check_answer_0_1(answer):
+    check_answers(answer, False, "0.1")
+
+def check_answer_0_2(answer):
+    check_answers(answer, False, "0.2")
+
+def check_answer_0_3(answer):
+    check_answers(answer, True, "0.3")
+
+def check_answer_0_4(answer):
+    check_answers(answer, True, "0.4")
+
+def check_answer_0_5(answer):
+    check_answers(answer, True, "0.5")
+
+def check_answer_0_6(answer):
+    check_answers(answer, False, "0.6")
+
+def check_answer_0_7(answer):
+    check_answers(answer, True, "0.7")
+
+def check_answer_0_8(answer):
+    check_answers(answer, True, "0.8")
+
 def check_answer_1_1(answer):
     check_answers(answer, "B", "1.1")
 
@@ -24,5 +49,5 @@ def check_answer_3_1(answer_A, answer_B, answer_C, answer_D):
 
 
 def check_answer_3_4(answer):
-    check_answers(answer, "I am cool." "3.1")
- 
+    check_answers(answer, "I am cool.", "3.4")
+
