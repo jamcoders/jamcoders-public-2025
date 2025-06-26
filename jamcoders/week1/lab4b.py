@@ -11,5 +11,7 @@ def create_check_answer(correct, num):
         check_answers_with_num(ans, correct, num)
     return check_fn
 
+check_answer_1_1b = create_check_answer(None, '1.1 (b)')
+
 check_answer_3_1a = create_check_answer('10 5', '3.1 (a)')
 check_answer_3_1b = create_check_answer('0', '3.1 (b)')
