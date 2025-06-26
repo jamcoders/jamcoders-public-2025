@@ -24,8 +24,8 @@ def create_solution_functions():
         "2_6" : O(n**2),
         "2_7" : O(log(n)),
         "2_8" : O(n * log(n)),
-        "6_1" : O(n),
-        "6_2" : O(2**n)
+        "7_1" : O(n),
+        "7_2" : O(2**n)
     }
 
 
@@ -75,7 +75,7 @@ def create_solution_functions():
 
    
 
-def check_answer3(name, n):
+def check_answer4(name, n):
     import math
     if name.lower() != "Zaria".lower():
         print("One of 3.1 and 3.2 is incorrect :(")
