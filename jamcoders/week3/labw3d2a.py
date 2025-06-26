@@ -24,6 +24,8 @@ def create_solution_functions():
         "2_6" : O(n**2),
         "2_7" : O(log(n)),
         "2_8" : O(n * log(n)),
+        "3_1" : O(n),
+        "3_3" : O(n**2),
         "7_1" : O(n),
         "7_2" : O(2**n)
     }
