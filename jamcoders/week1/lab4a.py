@@ -69,7 +69,7 @@ def play_parish_search(tries=3):
                     elif attempts[0] == 1:
                         print("Only one guess left.")
                     elif attempts[0] <= 0:
-                        print(f"Out of guesses! The correct parish was **{correct_parish}**.")
+                        print(f"Out of guesses! The correct parish was {correct_parish}.")
                         guess_input.disabled = True
                         submit_button.disabled = True
                         
