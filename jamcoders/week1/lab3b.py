@@ -11,9 +11,5 @@ def create_check_answer(correct, num):
         check_answers_with_num(ans, correct, num)
     return check_fn
 
-check_answer_2_1a = create_check_answer(10, '2.1a')
-check_answer_2_1b = create_check_answer(14, '2.1b')
-check_answer_2_1c_1 = create_check_answer(False, '2.1c_1')
-check_answer_2_1c_2 = create_check_answer(14, '2.1c_2')
-check_answer_2_1d_1 = create_check_answer(True, '2.1d_1')
-check_answer_2_1d_2 = create_check_answer(13, '2.1d_2')
+check_answer_0_1 = create_check_answer('Hello JamCoders', '0.1')
+check_answer_0_4 = create_check_answer('JamCoders', '0.4')
