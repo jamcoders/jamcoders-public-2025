@@ -52,3 +52,8 @@ def check_answer_3_1(answer_A, answer_B, answer_C, answer_D):
 
 def check_answer_3_4(answer):
     check_answers(answer, "I am cool.", "3.4")
+
+def check_answer_4_4(ans):
+    answers = [False,True,False,False,True,True,True]
+    for i in range(len(answers)):
+        check_answers(ans[i],answers[i], i+1)
