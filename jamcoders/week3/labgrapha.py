@@ -27,10 +27,12 @@ def create_check_answer_multi(correct):
 
 
 check_answer_1_1 = create_check_answer({0,1,2,3,4}, True)
+check_answer_1_2 = create_check_answer({(0, 1), (0, 2), (2, 3), (3, 4), (2, 4), (0, 4)}, True)
 check_answer_1_3 = create_check_answer(6)
 check_answer_1_4 = create_check_answer(5)
 check_answer_2_2 = create_check_answer({3,4}, True)
-check_ans_2_3 = create_check_answer(3)
-check_ans_2_4 = create_check_answer(0)
-check_ans_3_2 = create_check_answer_multi([False,False,True])
-check_ans_3_3 = create_check_answer_multi([True,True,False])
+check_answer_2_3 = create_check_answer(3)
+check_answer_2_4 = create_check_answer(0)
+check_answer_2_5 = create_check_answer([[2,3,4,2], [3,4,2,3], [4,2,3,4], [4,3,2,4], [2,4,3,2,], [3,2,4,3], [0,3,4,0], [0,4,3,0], [3,0,4,3], [3,4,0,3], [4,0,3,4], [4,3,0,4]], True)
+check_answer_3_2 = create_check_answer_multi([False,False,True])
+check_answer_3_3 = create_check_answer_multi([True,True,False])
