@@ -6,7 +6,14 @@ import ipywidgets as widgets
 from IPython.display import display, clear_output
 
 # Load data 
-gdf = gpd.read_file("jamaica_parishes.geojson").to_crs(epsg=4326)
+#used for vscode playing:
+# gdf = gpd.read_file("jamaica_parishes.geojson").to_crs(epsg=4326)
+#used for colab playing:
+import os
+BASE_DIR = os.path.dirname(__file__)
+DATA_PATH = os.path.join(BASE_DIR, "data", "jamaica_parishes.geojson")
+gdf = gpd.read_file(DATA_PATH).to_crs(epsg=4326)
+
 island = gdf.unary_union
 
 def play_parish_search(tries=3):
