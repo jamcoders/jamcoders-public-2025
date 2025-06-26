@@ -43,11 +43,12 @@ def check_answer_2_4(answer1, answer2):
     answers = [answer1] + [answer2]
     check_answers(answers, [2,1], "2.4")
 
+def check_answer_2_6(answer):
+    check_answers(answer, ['Perfect day for the beach!', 'Wear a hoodie and bring a raincoat.', 'Dress warmly, it’s cold out.', 'Wear shorts and take an umbrella.'], "2.6")
+
 def check_answer_3_1(answer_A, answer_B, answer_C, answer_D):
     answers = [answer_A] + [answer_B] +[answer_C] +[answer_D] 
     check_answers(answers, [2,1,4,3], "3.1")
 
-
 def check_answer_3_4(answer):
     check_answers(answer, "I am cool.", "3.4")
-
