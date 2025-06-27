@@ -65,7 +65,7 @@ def play_game():
     error_message = "Alas, you didn't select A, B, or C properly." 
 
     # Q1: Moat - B
-    moat_scene = "Wonderful witch Adrianna arrives at the murky moat surrounding the castle, where giant alligators patrol the waters. She must make her way past this first obstacle to break into the castle and get closer to rescuing Prince Manolis.\n"
+    moat_scene = "Wonderful witch Adrianna arrives at the murky moat surrounding the castle, where giant alligators \npatrol the waters. She must make her way past this first obstacle to break into the castle and get \ncloser to rescuing Prince Manolis.\n"
     moat_question = "How should wonderful witch Adrianna get by the agitated alligators?\n"
     moat_option_a = "\tA: Fly over the moat on your broomstick.\n"
     moat_option_b = "\tB: Cast a sleep spell on the alligators and sneak across the bridge.\n"
@@ -76,14 +76,14 @@ def play_game():
     moat_response_c = "The gators finish the fish too quickly and start chasing Adrianna, forcing her to sprint back to shore.\n"
 
     # Q2: Inner Courtyard - A 
-    courtyard_scene = "Adrianna gracefully enters the inner courtyard, and quickly hides in the doorway. The dragon's minions are swarming the area, guarding the stairwell!\n"
+    courtyard_scene = "Adrianna gracefully enters the inner courtyard, and quickly hides in the doorway. The dragon's minions \nare swarming the area, guarding the stairwell!\n"
     courtyard_question = "What should wonderful witch Adrianna do to get by the guards?\n"
     courtyard_option_a = "\tA: Disguise herself as a minion using a quick glamor spell.\n"
     courtyard_option_b = "\tB: Throw a glitterbomb potion to distract them.\n"
     courtyard_option_c = "\tC: Bribe them with enchanted candies to let her pass.\n" 
 
     courtyard_response_a = "Adrianna's nose grows pointy, and she shuffles past unnoticed while they argue about chores.\n"
-    courtyard_response_b = "The potion explodes too early, covering Adrianna in glitter and making her easy to spot. The minions chase Adrianna around the courtyard before she narrowly escapes.\n"
+    courtyard_response_b = "The potion explodes too early, covering Adrianna in glitter and making her easy to spot. The minions \nchase Adrianna around the courtyard before she narrowly escapes.\n"
     courtyard_response_c = "They take the candies but demand even more, blocking Adrianna's way with sticky hands.\n"
 
     # Q3: Tower Stairs - A 
@@ -109,18 +109,18 @@ def play_game():
     cage_response_c = "Her whispered words shimmer through the air and the chains fall away, freeing Manolis.\n"
 
     # Q5: Escape - B 
-    escape_scene = "Emberwing catches on that an escape is happening! Wonderful witch Adrianna and Prince Manolis prepare to free.\n"
+    escape_scene = "Emberwing catches on that an escape is happening! Wonderful witch Adrianna and Prince Manolis \nprepare to free.\n"
     escape_question = "What should they do to get away from the dragon?\n"
     escape_option_a = "\tA: Challenge Emberwing with a thunder spell so Manolis can run.\n"
     escape_option_b = "\tB: Ride her broom with Manolis out the window.\n"
     escape_option_c = "\tC: Hide under Adrianna's invisibility cloak and sneak out.\n"
 
     escape_response_a = "The spell fizzles, and Emberwing snorts smoke, forcing them both to hide behind a barrel.\n"
-    escape_response_b = "Adrianna and Manolis narrowly escape, soaring into the moonlight, free at last! They return to safety, and the kingdom is finally free from the dragon's wrath, protected by the wonderful witch.\n"
+    escape_response_b = "Adrianna and Manolis narrowly escape, soaring into the moonlight, free at last! They return to safety, \nand the kingdom is finally free from the dragon's wrath, protected by the wonderful witch.\n"
     escape_response_c = "The wonderful witch trips over Manolis's foot under the cloak, knocking over a lantern with a loud clang.\n"
 
     # Ending Scenes
-    fail_rescue = "Despite your best efforts, the wonderful witch Adrianna couldn't save Prince Manolis from Emberwing. The tower looms dark as she retreats, her cloak torn and her wand dimming in the dawn mist. But in her heart, Adrianna vows she will return, braver and wiser, to try again..."
+    fail_rescue = "Despite your best efforts, the wonderful witch Adrianna couldn't save Prince Manolis from Emberwing. \nThe tower looms dark as she retreats, her cloak torn and her wand dimming in the dawn mist. But in \nher heart, Adrianna vows she will return, braver and wiser, to try again..."
 
     # Start by assuming you'll succeed... 
     success = True
