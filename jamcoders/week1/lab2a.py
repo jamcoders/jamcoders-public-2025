@@ -51,7 +51,7 @@ def check_answer_3_1(answer_A, answer_B, answer_C, answer_D):
     check_answers(answers, [2,1,4,3], "3.1")
 
 def check_answer_3_4(answer):
-    check_answers(answer, "I am cool.", "3.4")
+    check_answers(answer, "You am cool.", "3.4")
 
 def check_answer_4_4(ans):
     answers = [False,True,False,False,True,True,True]
