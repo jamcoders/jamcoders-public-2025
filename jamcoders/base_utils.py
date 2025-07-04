@@ -31,7 +31,7 @@ def assert_equal(want, got):
         NotebookTracking.tracker.send_assertion_event(assert_passed)
 
     if assert_passed:
-        print("Test case passed.")
+        print("\033[92mTest case passed.\033[0m")
     else:
         print()
         print("--------- \033[1;95mTest case failed.\033[0m ---------")
