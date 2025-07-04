@@ -34,7 +34,7 @@ def assert_equal(want, got):
         print("Test case passed.")
     else:
         print()
-        print("--------- Test case failed. ---------")
+        print("--------- print("\033[31mTest case failed.\033[0m"---------")
         print(f"Want: {repr(want)} (type: {type(want).__name__})")
         print(f"Got:  {repr(got)} (type: {type(got).__name__})")
         print("-------------------------------------")
