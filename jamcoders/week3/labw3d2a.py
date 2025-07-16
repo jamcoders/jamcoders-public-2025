@@ -26,8 +26,8 @@ def create_solution_functions():
         "2_8" : O(n * log(n)),
         "3_1" : O(n),
         "3_3" : O(n**2),
-        "7_1" : O(n),
-        "7_2" : O(2**n)
+        "6_1" : O(n),
+        "6_2" : O(2**n)
     }
 
 
@@ -80,14 +80,14 @@ def create_solution_functions():
 def check_answer4(name, n):
     import math
     if name.lower() != "Zaria".lower():
-        print("One of 3.1 and 3.2 is incorrect :(")
+        print("One of 4.1 and 4.2 is incorrect :(")
         return
 
     if 0.0001 * (n ** 2) >= 10 * n * math.log(n):
-        print("One of 3.1 and 3.2 is incorrect :(")
+        print("One of 4.1 and 4.2 is incorrect :(")
         return
 
-    print("Both 3.1 and 3.2 are correct! :)")
+    print("Both 4.1 and 4.2 are correct! :)")
 
 def ilog_binary(x):
     """Finds the smallest integer y for which 2 ** (y+1) > x.
