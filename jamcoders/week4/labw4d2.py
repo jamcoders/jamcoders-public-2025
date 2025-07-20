@@ -1,5 +1,6 @@
 import re
 
+
 # For answer checking without revealing the answer
 def check_answers_with_num(answer, correct, num):
     if correct == answer:
@@ -108,7 +109,9 @@ def clean(line):
     return line
 
 
-check_answer_1_4 = create_check_answer_multi_fuzzy([19790, 81.5], [1000, 5])
+check_answer_1_4 = create_check_answer_multi_fuzzy(
+    [19790, 93.51258755002858], [1000, 5]
+)
 check_answer_3_1 = create_check_answer_multi(
     [["you", "dogs"], 0.4, "you", ["i", "love", "you", "so", "much"]]
 )
