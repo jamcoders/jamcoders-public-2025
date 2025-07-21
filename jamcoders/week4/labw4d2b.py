@@ -21,9 +21,12 @@ def plot_graph(G):
     # Use graphviz layout with pydot (top-down)
     pos = graphviz_layout(G, prog="dot")  # 'dot' gives hierarchical top-down layout
 
+    # Extract edge weights to use as widths
+    edge_weights = [G[u][v]["weight"] for u, v in G.edges()]
+
     # Draw nodes and edges
     plt.figure(figsize=(8, 6))
-    # TODO arrows wider and thinner (proportional to probability)
+
     nx.draw(
         G,
         pos,
@@ -34,6 +37,7 @@ def plot_graph(G):
         arrowstyle="->",
         arrowsize=20,
         font_size=12,
+        width=edge_weights,  # Set edge thickness based on weight
     )
 
     # Draw edge labels
@@ -42,7 +46,6 @@ def plot_graph(G):
 
     plt.title("Bigram Probabilities")
     plt.show()
-
 # For answer checking without revealing the answer
 def check_answers_with_num(answer, correct, num):
     if correct == answer:
