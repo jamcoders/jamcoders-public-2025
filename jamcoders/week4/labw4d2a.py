@@ -127,12 +127,45 @@ def plot_wordcloud(word_counts):
     plt.axis('off')
     plt.show()
 
+
+def visualize_distribution(word_data, top_n: int = 15) -> None:
+    """
+    Visualize word distribution as a bar chart.
+    
+    Args:
+        word_data: Dictionary mapping words to counts or probabilities
+        top_n: Number of top words to display
+    """
+    # If values are counts, convert to probabilities
+    total = sum(word_data.values())
+    if total > 1.1:  # Likely counts, not probabilities
+        word_probs = {word: count/total for word, count in word_data.items()}
+    else:
+        word_probs = word_data
+    
+    # Get top N words
+    top_words = sorted(word_probs.items(), key=lambda x: x[1], reverse=True)[:top_n]
+    words, probs = zip(*top_words)
+    
+    # Create bar chart
+    plt.figure(figsize=(12, 6))
+    bars = plt.bar(range(len(words)), probs)
+    plt.xticks(range(len(words)), words, rotation=45, ha='right')
+    plt.ylabel('Probability')
+    plt.title(f'Top {top_n} Words by Frequency')
+    plt.tight_layout()
+    
+    # Add value labels on bars
+    for bar, prob in zip(bars, probs):
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2., height,
+                f'{prob:.3f}', ha='center', va='bottom', fontsize=8)
+    
+    plt.show()
+
 check_answer_1_4 = create_check_answer_multi_fuzzy(
     [19790, 93.51258755002858], [1000, 5]
 )
 check_answer_3_1 = create_check_answer_multi(
     [["you", "dogs"], 0.4, "you", ["i", "love", "you", "so", "much"]]
 )
-
-plot_wordcloud({'Minolis' : 2, 'Sam' : 1})
-
