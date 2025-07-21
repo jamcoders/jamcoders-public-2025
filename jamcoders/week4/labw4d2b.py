@@ -3,7 +3,6 @@ import networkx as nx
 import pydot
 from networkx.drawing.nx_pydot import graphviz_layout
 import random
-import WordCloud
 
 
 def generate_graph(weighted_adj_list):
@@ -109,13 +108,6 @@ def sample_from_dict(prob_dict):
     raise ValueError(
         "Probabilities do not sum to 1")  # Could this happen due to floating point error? Lmk if you see this!
 
-def plot_wordcloud(word_counts):
-    wordcloud = WordCloud(width=800, height=400, background_color='white').generate_from_frequencies(word_counts)
-
-    plt.figure(figsize=(10, 5))
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis('off')
-    plt.show()
 
 
 check_answer_1_1 = create_check_answer_multi(

@@ -1,6 +1,7 @@
 import re
 import pickle
 import urllib.request
+import WordCloud
 
 # For answer checking without revealing the answer
 def check_answers_with_num(answer, correct, num):
@@ -116,6 +117,14 @@ def load_dataset():
         corpus = pickle.load(response)
         
     return corpus
+
+def plot_wordcloud(word_counts):
+    wordcloud = WordCloud(width=800, height=400, background_color='white').generate_from_frequencies(word_counts)
+
+    plt.figure(figsize=(10, 5))
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis('off')
+    plt.show()
 
 check_answer_1_4 = create_check_answer_multi_fuzzy(
     [19790, 93.51258755002858], [1000, 5]
