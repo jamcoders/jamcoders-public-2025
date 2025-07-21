@@ -1,9 +1,14 @@
 # For answer checking without revealing the answer
 def check_answers_with_num(answer, correct, num):
     if correct == answer:
-        print(f"Your answer to Question {num} is correct!")
+        print(f"\033[92mYour answer to Question {num} is correct!\033[0m")
+        #print("\033[92mTest case passed.\033[0m")
     else:
-        print(f"Your answer to Question {num}: '{answer}' is wrong :( try again!")
+        print(f"--------- \033[1;95mYour answer to Question {num}: '{answer}' is wrong :( try again!\033[0m ---------")
+
+
+        # print("\033[92mTest case passed.\033[0m")
+        # print("--------- \033[1;95mTest case failed.\033[0m ---------")
 
 
 def create_check_answer(correct, num):
@@ -13,9 +18,9 @@ def create_check_answer(correct, num):
 
 def check_answers_with_num_multi(answer, correct):
     if correct == answer:
-        print(f"All your answers are correct!")
+        print(f"\033[92mAll your answers are correct!\033[0m")
     else:
-        print(f"At least one of your answers is wrong :( try again!")
+        print(f"--------- \033[1;95mAt least one of your answers is wrong :( try again!\033[0m ---------")
 
 
 def create_check_answer_multi(correct):
