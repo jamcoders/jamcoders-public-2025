@@ -2,6 +2,7 @@ import re
 import pickle
 import urllib.request
 
+
 # For answer checking without revealing the answer
 def check_answers_with_num(answer, correct, num):
     if correct == answer:
@@ -109,8 +110,9 @@ def clean(line):
 
     return line
 
+
 def load_dataset():
-    url = 'https://raw.githubusercontent.com/jamcoders/labs-2025/main/week4/data/corpus.pkl'
+    url = "https://raw.githubusercontent.com/jamcoders/labs-2025/main/week4/data/corpus.pkl?raw=true"
     with urllib.request.urlopen(url) as response:
         corpus = pickle.load(response)
     return corpus
