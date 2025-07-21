@@ -11,14 +11,14 @@ def add_edges(G, data):
   return G
 
 
-def plot_graph():
+def generate_graph():
     # Create a directed graph (tree)
     G = nx.DiGraph()
 
     # Add edges (with optional weights or labels)
 
     TOY_DATASET = {
-        "<bos>": {"I": 1},
+        "<START>": {"I": 1},
         "I": {"am": 0.5, "like": 0.5},
         "am": {"happy": 0.7, "sad": 0.2, "bananas": 0.1},
         "like": {"bananas": 0.6, "math": 0.4}
@@ -27,6 +27,7 @@ def plot_graph():
     G = add_edges(G, TOY_DATASET)
 
 
+def plot_graph(G):
     # Use graphviz layout with pydot (top-down)
     pos = graphviz_layout(G, prog='dot')  # 'dot' gives hierarchical top-down layout
 
