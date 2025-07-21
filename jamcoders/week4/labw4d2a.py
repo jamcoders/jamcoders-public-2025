@@ -128,7 +128,7 @@ def plot_wordcloud(word_counts):
     plt.show()
 
 
-def visualize_distribution(word_data, top_n: int = 15) -> None:
+def visualize_barplot(word_data, top_n: int = 15) -> None:
     """
     Visualize word distribution as a bar chart.
     
