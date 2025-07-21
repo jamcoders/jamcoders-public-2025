@@ -163,7 +163,7 @@ def visualize_distribution(word_data, top_n: int = 15) -> None:
     
     plt.show()
 
-check_answer_1_4 = create_check_answer_multi_fuzzy(
+check_answer_1_6 = create_check_answer_multi_fuzzy(
     [19790, 93.51258755002858], [1000, 5]
 )
 check_answer_3_1 = create_check_answer_multi(
