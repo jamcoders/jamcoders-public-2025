@@ -8,16 +8,16 @@ options = {
 }
 
 # For answer checking without revealing the answer
-def check_answers_with_num(answer, correct):
+def check_answers_with_num(answer, correct, num):
     if correct == answer:
-        print(f"Your answer is correct!")
+        print(f"Your answer to Question {num} is correct!")
     else:
-        print(f"Your answer: '{answer}' is wrong :( try again!")
+        print(f"Your answer to Question {num}: '{answer}' is wrong :( try again!")
 
 
-def create_check_answer(correct):
+def create_check_answer(correct, num):
     def check_fn(ans):
-        check_answers_with_num(ans, correct)
+        check_answers_with_num(ans, correct, num)
     return check_fn
 
 def check_answers_with_num_multi(answer, correct):
