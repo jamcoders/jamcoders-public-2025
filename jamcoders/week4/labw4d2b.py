@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import networkx as nx
 import pydot
 from networkx.drawing.nx_pydot import graphviz_layout
+import random
 
 
 def generate_graph(weighted_adj_list):
@@ -73,6 +74,39 @@ def create_check_answer_multi(correct):
         check_answers_with_num_multi(ans, correct)
 
     return check_fn
+
+def sample_from_dict(prob_dict):
+    """
+    Sample an item from a dictionary of probabilities.
+
+    Args:
+        prob_dict: Dictionary mapping items to their probabilities.
+                   Probabilities should sum to 1.
+
+    Returns:
+        A randomly sampled key from the dictionary, weighted by probabilities.
+
+    Example:
+        >>> sample_from_dict({"red": 0.4, "blue": 0.3, "green": 0.2, "yellow": 0.1})
+        'red'  # (with 40% probability)
+    """
+    assert isinstance(prob_dict, dict), "Input must be a dictionary"
+    assert len(prob_dict) > 0, "Input must not be empty"
+    assert all(isinstance(k, str) for k in prob_dict.keys()), "Keys must be strings"
+    for v in prob_dict.values():
+        assert isinstance(v, float), "Probabilities must be floats"
+        assert 0 <= v <= 1, "Probabilities must be between 0 and 1"
+    assert abs(sum(prob_dict.values()) - 1) < 1e-6, "Probabilities must sum to 1"
+
+    r = random.random()
+    cumulative = 0
+
+    for item, prob in prob_dict.items():
+        cumulative += prob
+        if r <= cumulative:
+            return item
+    raise ValueError(
+        "Probabilities do not sum to 1")  # Could this happen due to floating point error? Lmk if you see this!
 
 
 check_answer_1_1 = create_check_answer_multi(
