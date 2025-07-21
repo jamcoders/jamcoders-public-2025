@@ -1,7 +1,8 @@
 import re
 import pickle
 import urllib.request
-import WordCloud
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
 
 # For answer checking without revealing the answer
 def check_answers_with_num(answer, correct, num):
@@ -132,4 +133,6 @@ check_answer_1_4 = create_check_answer_multi_fuzzy(
 check_answer_3_1 = create_check_answer_multi(
     [["you", "dogs"], 0.4, "you", ["i", "love", "you", "so", "much"]]
 )
+
+plot_wordcloud({'Minolis' : 2, 'Sam' : 1})
 
