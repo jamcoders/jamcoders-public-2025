@@ -8,16 +8,16 @@ options = {
 }
 
 # For answer checking without revealing the answer
-def check_answers_with_num(answer, correct):
+def check_answers_with_num(answer, correct, num):
     if correct == answer:
-        print(f"Your answer is correct!")
+        print(f"Your answer to Question {num} is correct!")
     else:
-        print(f"Your answer: '{answer}' is wrong :( try again!")
+        print(f"Your answer to Question {num}: '{answer}' is wrong :( try again!")
 
 
-def create_check_answer(correct):
+def create_check_answer(correct, num):
     def check_fn(ans):
-        check_answers_with_num(ans, correct)
+        check_answers_with_num(ans, correct, num)
     return check_fn
 
 def check_answers_with_num_multi(answer, correct):
@@ -33,6 +33,23 @@ def create_check_answer_multi(correct):
     return check_fn
 
 
-check_answer_1_0 = create_check_answer_multi([False,True,True,True,True,True,False])
-check_answer_2_1 = create_check_answer(337**2)
-check_answer_2_2 = create_check_answer(2*337**2)
+check_answer_0 = create_check_answer([2, 4, 6, 8], '0')
+check_answer_1_1 = create_check_answer([0, 1, 4, 2, 3], '1.1')
+check_answer_1_2 = create_check_answer([0], '1.2')
+check_answer_1_3_1 = create_check_answer(0, '1.3, current_vertex')
+check_answer_1_3_2 = create_check_answer([1, 4], '1.3, queue')
+check_answer_1_4_1 = create_check_answer(1, '1.4, current_vertex')
+check_answer_1_4_2 = create_check_answer([4, 2, 3], '1.4, queue')
+check_answer_1_5_1 = create_check_answer(4, '1.5, current_vertex')
+check_answer_1_5_2 = create_check_answer([2, 3, 5], '1.5, queue')
+check_answer_1_6_1 = create_check_answer(2, '1.6, current_vertex')
+check_answer_1_6_2 = create_check_answer([3, 5, 7], '1.6, queue')
+check_answer_1_7_1 = create_check_answer(3, '1.7, current_vertex')
+check_answer_1_7_2 = create_check_answer([5, 7], '1.7, queue')
+check_answer_1_8_1 = create_check_answer(5, '1.8, current_vertex')
+check_answer_1_8_2 = create_check_answer([7, 6], '1.8, queue')
+check_answer_1_9_1 = create_check_answer(7, '1.9, current_vertex')
+check_answer_1_9_2 = create_check_answer([6], '1.9, queue')
+check_answer_1_10_1 = create_check_answer(6, '1.10, current_vertex')
+check_answer_1_10_2 = create_check_answer([], '1.10, queue')
+check_answer_1_11 = create_check_answer([0, 1, 4, 2, 3, 5, 7, 6], '1.11')
