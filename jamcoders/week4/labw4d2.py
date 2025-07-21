@@ -1,6 +1,7 @@
 import re
 import pickle
 import urllib.request
+import os
 
 
 # For answer checking without revealing the answer
@@ -110,13 +111,13 @@ def clean(line):
 
     return line
 
-
 def load_dataset():
-    url = "https://raw.githubusercontent.com/jamcoders/labs-2025/main/week4/data/corpus.pkl?raw=true"
+    url = "https://raw.githubusercontent.com/jamcoders/jamcoders-public-2025/main/jamcoders/week4/data/corpus.pkl"
+
     with urllib.request.urlopen(url) as response:
         corpus = pickle.load(response)
+        
     return corpus
-
 
 check_answer_1_4 = create_check_answer_multi_fuzzy(
     [19790, 93.51258755002858], [1000, 5]
