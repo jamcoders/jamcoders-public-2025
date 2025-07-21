@@ -18,9 +18,10 @@ def check_answers_with_num(answer, correct, num):
         # print("\033[92mTest case passed.\033[0m")
         # print("--------- \033[1;95mTest case failed.\033[0m ---------")
 
-def create_check_answer(correct):
+
+def create_check_answer(correct, num):
     def check_fn(ans):
-        check_answers_with_num(ans, correct)
+        check_answers_with_num(ans, correct, num)
     return check_fn
 
 def check_answers_with_num_multi(answer, correct):
