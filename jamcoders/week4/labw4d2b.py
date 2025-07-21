@@ -26,6 +26,8 @@ def generate_graph():
 
     G = add_edges(G, TOY_DATASET)
 
+    return G
+
 
 def plot_graph(G):
     # Use graphviz layout with pydot (top-down)
