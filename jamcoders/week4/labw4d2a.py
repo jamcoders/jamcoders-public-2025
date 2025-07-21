@@ -72,6 +72,6 @@ def create_check_answer_multi(correct):
     return check_fn
 
 
-check_answer_1_1 = create_check_answer(
+check_answer_1_1 = create_check_answer_multi(
     [8, 8, 3, False]
 )
