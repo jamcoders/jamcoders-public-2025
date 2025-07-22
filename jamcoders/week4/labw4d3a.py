@@ -1,5 +1,7 @@
 import requests
 import matplotlib.pyplot as plt
+import networkx as nx
+
 
 def get_harry_potter_data():
     url = "https://dgoldberg.sdsu.edu/515/harrypotter.txt"
