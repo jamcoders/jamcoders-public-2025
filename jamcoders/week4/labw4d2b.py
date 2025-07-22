@@ -23,7 +23,7 @@ def plot_graph(G):
     pos = graphviz_layout(G, prog="dot")  # 'dot' gives hierarchical top-down layout
 
     # Extract edge weights to use as widths
-    edge_weights = [G[u][v]["weight"] for u, v in G.edges()]
+    edge_weights = [G[u][v]["weight"] * 5 for u, v in G.edges()]
 
     # Draw nodes and edges
     plt.figure(figsize=(8, 6))
