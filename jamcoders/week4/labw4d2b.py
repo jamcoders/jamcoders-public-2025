@@ -4,12 +4,10 @@ import pydot
 from networkx.drawing.nx_pydot import graphviz_layout
 import random
 
-
 def generate_graph(weighted_adj_list):
     G = nx.DiGraph()
     G = add_edges(G, weighted_adj_list)
     return G
-
 
 def add_edges(G, data):
     for word1 in data:
@@ -17,17 +15,10 @@ def add_edges(G, data):
             G.add_edge(word1, word2, weight=data[word1][word2])
     return G
 
-
 def plot_graph(G):
-    # Use graphviz layout with pydot (top-down)
-    pos = graphviz_layout(G, prog="dot")  # 'dot' gives hierarchical top-down layout
-
-    # Extract edge weights to use as widths
+    pos = graphviz_layout(G, prog="dot")
     edge_weights = [G[u][v]["weight"] * 5 for u, v in G.edges()]
-
-    # Draw nodes and edges
     plt.figure(figsize=(8, 6))
-
     nx.draw(
         G,
         pos,
@@ -38,41 +29,34 @@ def plot_graph(G):
         arrowstyle="->",
         arrowsize=20,
         font_size=12,
-        width=edge_weights,  # Set edge thickness based on weight
+        width=edge_weights,
     )
-
-    # Draw edge labels
     edge_labels = nx.get_edge_attributes(G, "weight")
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=10)
-
     plt.title("Bigram Probabilities")
     plt.show()
-# For answer checking without revealing the answer
+
+# For answer checking with color
 def check_answers_with_num(answer, correct, num):
     if correct == answer:
-        print(f"Your answer to Question {num} is correct!")
+        print(f"\033[92mYour answer to Question {num} is correct!\033[0m")
     else:
-        print(f"Your answer to Question {num}: '{answer}' is wrong :( try again!")
-
+        print(f"\033[1;95mYour answer to Question {num}: '{answer}' is wrong :( try again!\033[0m")
 
 def create_check_answer(correct, num):
     def check_fn(ans):
         check_answers_with_num(ans, correct, num)
-
     return check_fn
-
 
 def check_answers_with_num_multi(answer, correct):
     if correct == answer:
-        print(f"All your answers are correct!")
+        print(f"\033[92mAll your answers are correct!\033[0m")
     else:
-        print(f"At least one of your answers is wrong :( try again!")
-
+        print(f"\033[1;95mAt least one of your answers is wrong :( try again!\033[0m")
 
 def create_check_answer_multi(correct):
     def check_fn(ans):
         check_answers_with_num_multi(ans, correct)
-
     return check_fn
 
 def sample_from_dict(prob_dict):
@@ -85,10 +69,6 @@ def sample_from_dict(prob_dict):
 
     Returns:
         A randomly sampled key from the dictionary, weighted by probabilities.
-
-    Example:
-        >>> sample_from_dict({"red": 0.4, "blue": 0.3, "green": 0.2, "yellow": 0.1})
-        'red'  # (with 40% probability)
     """
     assert isinstance(prob_dict, dict), "Input must be a dictionary"
     assert len(prob_dict) > 0, "Input must not be empty"
@@ -107,8 +87,6 @@ def sample_from_dict(prob_dict):
             return item
     raise ValueError(
         "Probabilities do not sum to 1")  # Could this happen due to floating point error? Lmk if you see this!
-
-
 
 check_answer_1_1 = create_check_answer_multi(
     [8, 8, 3, False]

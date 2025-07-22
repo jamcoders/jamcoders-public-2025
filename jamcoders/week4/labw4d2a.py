@@ -7,46 +7,37 @@ from wordcloud import WordCloud
 # For answer checking without revealing the answer
 def check_answers_with_num(answer, correct, num):
     if correct == answer:
-        print(f"Your answer to Question {num} is correct!")
+        print(f"\033[92mYour answer to Question {num} is correct!\033[0m")
     else:
-        print(f"Your answer to Question {num}: '{answer}' is wrong :( try again!")
-
+        print(f"\033[1;95mYour answer to Question {num}: '{answer}' is wrong :( try again!\033[0m")
 
 def create_check_answer(correct, num):
     def check_fn(ans):
         check_answers_with_num(ans, correct, num)
-
     return check_fn
-
 
 def check_answers_with_num_multi(answer, correct):
     if correct == answer:
-        print(f"All your answers are correct!")
+        print(f"\033[92mAll your answers are correct!\033[0m")
     else:
-        print(f"At least one of your answers is wrong :( try again!")
-
+        print(f"\033[1;95mAt least one of your answers is wrong :( try again!\033[0m")
 
 def create_check_answer_multi(correct):
     def check_fn(ans):
         check_answers_with_num_multi(ans, correct)
-
     return check_fn
-
 
 # Fuzzy check for single numerical answer with tolerance
 def check_answers_with_num_fuzzy(answer, correct, num, tol):
     if abs(answer - correct) <= tol:
-        print(f"Your answer to Question {num} is correct!")
+        print(f"\033[92mYour answer to Question {num} is correct!\033[0m")
     else:
-        print(f"Your answer to Question {num}: '{answer}' is wrong :( try again!")
-
+        print(f"\033[1;95mYour answer to Question {num}: '{answer}' is wrong :( try again!\033[0m")
 
 def create_check_answer_fuzzy(correct, num, tol):
     def check_fn(ans):
         check_answers_with_num_fuzzy(ans, correct, num, tol)
-
     return check_fn
-
 
 # Fuzzy check for multiple numerical answers with tolerances
 def check_answers_with_num_multi_fuzzy(answer_list, correct_list, tolerances):
@@ -56,21 +47,18 @@ def check_answers_with_num_multi_fuzzy(answer_list, correct_list, tolerances):
             all_correct = False
             break
     if all_correct:
-        print(f"All your answers are correct!")
+        print(f"\033[92mAll your answers are correct!\033[0m")
     else:
-        print(f"At least one of your answers is wrong :( try again!")
-
+        print(f"\033[1;95mAt least one of your answers is wrong :( try again!\033[0m")
 
 def create_check_answer_multi_fuzzy(correct_list, tolerances):
     def check_fn(ans_list):
         check_answers_with_num_multi_fuzzy(ans_list, correct_list, tolerances)
-
     return check_fn
-
 
 def clean(line):
     """
-    Utility functon for NLP project.
+    Utility function for NLP project.
 
     Clean up a line of text by:
     - Replacing ellipses with single periods
@@ -85,48 +73,29 @@ def clean(line):
     Returns:
         str: Cleaned string
     """
-
-    # Replace ellipses (...) with single period
     line = line.replace("...", ".")
-    line = line.replace("….", ".")  # Handle other ellipsis variations
-
-    # Remove tabs
+    line = line.replace("….", ".")
     line = line.replace("\t", " ")
-
-    # Remove quote
     line = line.replace('"', "")
     line = line.replace("`", "'")
     line = line.replace("’", "'")
-
-    # Smush standalone apostrophes:
-    # For example: convert "word ' word" to "word'word"
-    # Use regex to replace occurrences of space + apostrophe + space with just apostrophe
     line = re.sub(r"\s'\s", "'", line)
-
-    # Clean up multiple spaces again (because we replaced tabs and smushed apostrophes)
     line = " ".join(line.split())
-
-    # Lowercase
     line = line.lower()
-
     return line
 
 def load_dataset():
     url = "https://raw.githubusercontent.com/jamcoders/jamcoders-public-2025/main/jamcoders/week4/data/corpus.pkl"
-
     with urllib.request.urlopen(url) as response:
         corpus = pickle.load(response)
-        
     return corpus
 
 def plot_wordcloud(word_counts):
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate_from_frequencies(word_counts)
-
     plt.figure(figsize=(10, 5))
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis('off')
     plt.show()
-
 
 def visualize_barplot(word_data, top_n: int = 15) -> None:
     """
@@ -136,31 +105,22 @@ def visualize_barplot(word_data, top_n: int = 15) -> None:
         word_data: Dictionary mapping words to counts or probabilities
         top_n: Number of top words to display
     """
-    # If values are counts, convert to probabilities
     total = sum(word_data.values())
-    if total > 1.1:  # Likely counts, not probabilities
+    if total > 1.1:
         word_probs = {word: count/total for word, count in word_data.items()}
     else:
         word_probs = word_data
-    
-    # Get top N words
     top_words = sorted(word_probs.items(), key=lambda x: x[1], reverse=True)[:top_n]
     words, probs = zip(*top_words)
-    
-    # Create bar chart
     plt.figure(figsize=(12, 6))
     bars = plt.bar(range(len(words)), probs)
     plt.xticks(range(len(words)), words, rotation=45, ha='right')
     plt.ylabel('Probability')
     plt.title(f'Top {top_n} Words by Frequency')
     plt.tight_layout()
-    
-    # Add value labels on bars
     for bar, prob in zip(bars, probs):
         height = bar.get_height()
-        plt.text(bar.get_x() + bar.get_width()/2., height,
-                f'{prob:.3f}', ha='center', va='bottom', fontsize=8)
-    
+        plt.text(bar.get_x() + bar.get_width()/2., height, f'{prob:.3f}', ha='center', va='bottom', fontsize=8)
     plt.show()
 
 check_answer_1_6 = create_check_answer_multi_fuzzy(
