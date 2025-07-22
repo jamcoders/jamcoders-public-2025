@@ -31,9 +31,12 @@ def visualize_bar_chart(co_occurrence_data):
     plt.tight_layout()
     plt.show()
 
-def visualize_cooccurence(G, k):
+def visualize_cooccurence(G, k, weighted=True):
   pos = nx.spring_layout(G, weight='weight', k=k, seed=0)  # weight controls layout distance
-  edge_widths = [G[u][v]['weight']/10 for u, v in G.edges()]
+  if weighted:
+    edge_widths = [G[u][v]['weight']/10 for u, v in G.edges()]
+  else:
+    edge_widths = [G[u][v]['weight'] for u, v in G.edges() ]
 
   plt.figure(figsize=(8, 6))
   nx.draw(
