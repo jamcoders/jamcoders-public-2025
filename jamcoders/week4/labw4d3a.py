@@ -24,7 +24,25 @@ def visualize_bar_chart(co_occurrence_data):
     plt.bar(labels, values, color='skyblue')
     plt.title('Character Co-Occurrences')
     plt.xlabel('Character Pairings')
-    plt.ylabel('Number of Co-Ocurrences')
+    plt.ylabel('Number of Co-Occurrences')
     plt.xticks(rotation=90)
     plt.tight_layout()
     plt.show()
+
+def visualize_cooccurence(G, k):
+  pos = nx.spring_layout(G, weight='weight', k=k, seed=0)  # weight controls layout distance
+  edge_widths = [G[u][v]['weight']/10 for u, v in G.edges()]
+
+  plt.figure(figsize=(8, 6))
+  nx.draw(
+    G, pos,
+    with_labels=True,
+    node_color='lightblue',
+    node_size=2000,
+    font_size=12,
+    width=edge_widths,  # This controls edge thickness
+    edge_color='gray'
+  )
+
+  plt.title("Character Co-occurrence Graph")
+  plt.show()
