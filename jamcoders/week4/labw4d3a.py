@@ -35,8 +35,10 @@ def visualize_cooccurence(G, k, weighted=True):
   pos = nx.spring_layout(G, weight='weight', k=k, seed=0)  # weight controls layout distance
   if weighted:
     edge_widths = [G[u][v]['weight']/10 for u, v in G.edges()]
+    title = "Character Co-occurrence Graph"
   else:
-    edge_widths = [G[u][v]['weight'] for u, v in G.edges() ]
+    edge_widths = [G[u][v]['weight'] for u, v in G.edges()]
+    title = "Unweighted Character Co-occurrence Graph"
 
   plt.figure(figsize=(8, 6))
   nx.draw(
@@ -49,5 +51,5 @@ def visualize_cooccurence(G, k, weighted=True):
     edge_color='gray'
   )
 
-  plt.title("Character Co-occurrence Graph")
+  plt.title(title)
   plt.show()
