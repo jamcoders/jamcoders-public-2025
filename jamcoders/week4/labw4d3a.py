@@ -13,7 +13,7 @@ def get_harry_potter_data():
         print(f"Failed to fetch file: {response.status_code}")
         return
     
-    sentences = text.replace("Mr.", "Mr").replace("Mrs.", "Mrs").replace("\n","").replace("? ",". ").replace("! ",". ").split('. ')
+    sentences = text.replace("Mr.", "Mr").replace("Mrs.", "Mrs").replace("\n","").replace("\r","").replace("? ",". ").replace("! ",". ").split('. ')
     return sentences
 
 def visualize_bar_chart(co_occurrence_data):
