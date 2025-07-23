@@ -29,7 +29,7 @@ def create_check_answer_multi(correct):
 
 
 check_answer_1 = create_check_answer("Heyela", "1")
-chek_answer_2a = create_check_answer([1, 3, "westminister"], "2: second")
+check_answer_2a = create_check_answer([1, 3, "westminister"], "2: second")
 check_answer_2b = create_check_answer("mini-me", "2: third")
 check_answer_3a = create_check_answer(40, "3: a")
 check_answer_3b = create_check_answer("error", "3: b")
