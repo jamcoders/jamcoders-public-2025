@@ -50,7 +50,7 @@ check_answer_8_yellow = create_check_answer([8, 19, 21, 30], "8: yellow")
 check_answer_9a = create_check_answer([
     [0, 1, 0, 0, 0, 1, 0, 0],
     [1, 0, 0, 0, 0, 0, 1, 0],
-    [0, 0, 1, 0, 1, 0, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0, 0],
     [0, 0, 1, 0, 1, 0, 0, 0],
     [0, 0, 0, 1, 0, 0, 1, 0],
     [1, 0, 0, 0, 0, 0, 0, 1],
@@ -61,9 +61,10 @@ check_answer_9b = create_check_answer([
     [1, 5],
     [0, 6],
     [3],
-    [2],
+    [2, 4],
     [3, 6],
     [0, 7],
+    [1, 4, 7]
     [5, 6]
 ], "9b")
 check_answer_9c = create_check_answer(False, "9c")
