@@ -64,7 +64,7 @@ check_answer_9b = create_check_answer([
     [2, 4],
     [3, 6],
     [0, 7],
-    [1, 4, 7]
+    [1, 4, 7],
     [5, 6]
 ], "9b")
 check_answer_9c = create_check_answer(False, "9c")
